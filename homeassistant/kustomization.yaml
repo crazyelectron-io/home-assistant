@@ -5,5 +5,4 @@ kind: Kustomization
 namespace: automation
 resources:
   - ./namespace.yaml
-  - ./homeassistant/kustomization-fluxCRD.yaml
-  
+  - ./storage.yaml
