@@ -1,0 +1,67 @@
+homeassistant:
+  name: "Familie Moerman Home Assistant"
+  latitude: 51.89608
+  longitude: 4.16771
+  unit_system: metric
+  time_zone: "Europe/Amsterdam"
+  # customize: !include customize.yaml
+# --- Loads default set of integrations. Do not remove.
+default_config:
+history:
+logbook:
+api_password: "${SECRET_HOMEASSISTANT_API_PASSWORD}"
+# --- Required to set the reverse proxy parameters
+http:
+  ip_ban_enabled: false
+  login_attempts_threshold: 10
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 10.0.0.0/8
+    - 127.0.0.1
+    - ::1
+    - fe80::/64
+    - fe00::/64
+    - fd00::/64
+#auth_header:
+#  username_header: X-ak-hass-user
+#  debug: true
+logger:
+    default: info
+    # logs:
+    #     custom_components.icloud3: debug
+# --- Use Postgresql HA setup as recorder
+recorder:
+  auto_purge: false
+  purge_keep_days: 3660
+  db_url: postgresql://${SECRET_HOMEASSISTANT_PG_USER}:${SECRET_HOMEASSISTANT_PG_PASSWORD}@${SECRET_HOMEASSISTANT_PG_HOST}/${SECRET_HOMEASSISTANT_PG_DB}
+  db_retry_wait: 10
+# --- Load frontend themes from the themes folder
+frontend:
+  themes: !include_dir_merge_named themes
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+# --- Load MQTT sensor for SolarEdge Inverter
+mqtt:
+  sensor:
+    - name: "Solarpower"
+      state_topic: "/energy/inverter"
+      unit_of_measurement: "W"
+      value_template: "{% raw %}{{ value_json.power | round(0) }}{% endraw %}"
+      json_attributes_topic: "/energy/inverter"
+platform: template
+    sensors:
+      rons_iphone_home:
+        value_template: >-
+          {% if states('sensor.rons_iphone_ssid') == "TheShire" %}
+            home
+          {% else %}
+            not_home
+          {% endif %}
+        friendly_name: "Ron's iPhone Home (SSID = TheShire)"
+# --- Yamaha Audio Amplifier
+#media_player:
+#  - platform: yamaha
+#    host: 10.20.1.112
+#    zone_names:
+#      Main_Zone: "Woonkamer"
