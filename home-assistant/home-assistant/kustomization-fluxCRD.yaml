@@ -19,5 +19,5 @@ spec:
       namespace: flux-system
     - name: traefik-traefik
       namespace: flux-system
-    - name: automation-home-assistant-config
-      namespace: flux-system
+    # - name: automation-home-assistant-config
+    #   namespace: flux-system
