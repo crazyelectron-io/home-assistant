@@ -6,12 +6,3 @@ namespace: automation
 resources:
   - ./secret.sops.yaml
   - ./cluster.yaml
-# secretGenerator:
-#   - name: homeassistant-cnpg-user-secret
-#     literals:
-#         # aG9tZWFzc2lzdGFudF91c2Vy
-#       - username=homeassistant_user
-#       - password=xudLyJf91tgU6T2ccYdn
-#     type: 'kubernetes.io/basic-auth'
-# generatorOptions:
-#   disableNameSuffixHash: true

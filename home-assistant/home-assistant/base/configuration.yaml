@@ -8,15 +8,14 @@ homeassistant:
   currency: EUR
   country: NL
   time_zone: "Europe/Amsterdam"
-  external_url: "https://ha.moerman.online"
+  external_url: "https://ha.${SECRET_DOMAIN_0}"
   debug: false
   # customize: !include customize.yaml
 # --- Loads default set of integrations. Do not remove.
 default_config:
 history:
 logbook:
-# api_password: "${SECRET_HOMEASSISTANT_API_PASSWORD}"
-# --- Required to set the reverse proxy parameters
+# --- Set the reverse proxy parameters
 http:
   ip_ban_enabled: false
   login_attempts_threshold: 10
@@ -28,9 +27,6 @@ http:
     - fe80::/64
     - fe00::/64
     - fd00::/64
-#auth_header:
-#  username_header: X-ak-hass-user
-#  debug: true
 logger:
     default: info
     logs:
