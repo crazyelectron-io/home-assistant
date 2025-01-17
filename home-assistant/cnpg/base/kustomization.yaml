@@ -8,7 +8,8 @@ resources:
 secretGenerator:
   - name: homeassistant-cnpg-user-secret
     literals:
-      - username=aG9tZWFzc2lzdGFudF91c2Vy
+        # aG9tZWFzc2lzdGFudF91c2Vy
+      - username=homeassistant_user
       - password=eHVkTHlKZjkxdGdVNlQyY2NZZG4=
     type: 'kubernetes.io/basic-auth'
 generatorOptions:
