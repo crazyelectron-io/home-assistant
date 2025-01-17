@@ -10,7 +10,7 @@ secretGenerator:
     literals:
         # aG9tZWFzc2lzdGFudF91c2Vy
       - username=homeassistant_user
-      - password=eHVkTHlKZjkxdGdVNlQyY2NZZG4=
+      - password=xudLyJf91tgU6T2ccYdn
     type: 'kubernetes.io/basic-auth'
 generatorOptions:
   disableNameSuffixHash: true
