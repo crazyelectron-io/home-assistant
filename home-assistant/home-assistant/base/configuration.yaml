@@ -1,9 +1,15 @@
 homeassistant:
-  name: "Familie Home Assistant"
+  name: Thuis
   latitude: ${SECRET_LATITUDE}
   longitude: ${SECRET_LONGITUDE}
+  elevation: 1
+  radius: 30
   unit_system: metric
+  currency: EUR
+  countyry: NL
   time_zone: "Europe/Amsterdam"
+  external_url: "https://ha.moerman.online"
+  debug: false
   # customize: !include customize.yaml
 # --- Loads default set of integrations. Do not remove.
 default_config:
@@ -65,9 +71,3 @@ platform: template
 #    host: 10.20.1.112
 #    zone_names:
 #      Main_Zone: "Woonkamer"
-tomations.yaml: |
-# --- Automations go here
-ripts.yaml: |
-# --- Scripts go here
-enes.yaml: |
-# --- Scenes go here

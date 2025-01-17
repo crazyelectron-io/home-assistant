@@ -5,9 +5,16 @@ kind: Kustomization
 namespace: automation
 resources:
   - ./storage.yaml
+  # - ./hacs-config.yaml
+  - ./deployment.yaml
+  - ./service.yaml
+  - ./ingressroute.yaml
 configMapGenerator:
   - name: home-assistant-config
     files:
       - configuration.yaml
+      - automations.yaml
+      - scripts.yaml
+      - scenes.yaml
 generatorOptions:
   disableNameSuffixHash: true
