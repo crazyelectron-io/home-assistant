@@ -6,7 +6,7 @@ homeassistant:
   radius: 30
   unit_system: metric
   currency: EUR
-  countyry: NL
+  country: NL
   time_zone: "Europe/Amsterdam"
   external_url: "https://ha.moerman.online"
   debug: false

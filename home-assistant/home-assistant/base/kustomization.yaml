@@ -5,7 +5,7 @@ kind: Kustomization
 namespace: automation
 resources:
   - ./storage.yaml
-  # - ./hacs-config.yaml
+  - ./hacs-config.yaml
   - ./deployment.yaml
   - ./service.yaml
   - ./ingressroute.yaml

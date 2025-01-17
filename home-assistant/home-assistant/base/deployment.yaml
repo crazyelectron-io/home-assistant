@@ -34,14 +34,14 @@ spec:
               mountPath: /ha
             - name: default-config
               mountPath: /config
-        # - name: init-hacs
-        #   image: debian:12.6-slim
-        #   command: ['bash', '-c', 'cp /hacs/get_hacs.sh . && chmod +x get_hacs.sh && ./get_hacs.sh']
-        #   volumeMounts:
-        #     - name: homeassistant-data
-        #       mountPath: /config
-        #     - name: hacs-install
-        #       mountPath: /hacs
+        - name: init-hacs
+          image: debian:12.6-slim
+          command: ['bash', '-c', 'cp /hacs/get_hacs.sh . && chmod +x get_hacs.sh && ./get_hacs.sh']
+          volumeMounts:
+            - name: homeassistant-data
+              mountPath: /config
+            - name: hacs-install
+              mountPath: /hacs
       containers:
         - name: *app
           image: lscr.io/linuxserver/homeassistant:2025.1.2
