@@ -16,3 +16,5 @@ spec:
   dependsOn:
     - name: longhorn-system-longhorn
       namespace: flux-system
+    - name: cpng-system-cnpg
+      namespace: flux-system

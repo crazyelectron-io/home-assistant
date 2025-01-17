@@ -15,7 +15,7 @@ homeassistant:
 default_config:
 history:
 logbook:
-api_password: "${SECRET_HOMEASSISTANT_API_PASSWORD}"
+# api_password: "${SECRET_HOMEASSISTANT_API_PASSWORD}"
 # --- Required to set the reverse proxy parameters
 http:
   ip_ban_enabled: false
