@@ -42,7 +42,7 @@ spec:
         #       mountPath: /hacs
       containers:
         - name: *app
-          image: lscr.io/linuxserver/homeassistant:2025.1
+          image: lscr.io/linuxserver/homeassistant:2025.1.2
           imagePullPolicy: IfNotPresent
           resources:
             limits:
