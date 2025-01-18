@@ -16,5 +16,8 @@ configMapGenerator:
       - automations.yaml
       - scripts.yaml
       - scenes.yaml
+      - core.config
+      - http
+      - onboarding
 generatorOptions:
   disableNameSuffixHash: true

@@ -1,7 +1,8 @@
+default_config:
 homeassistant:
   name: Thuis
-  latitude: ${SECRET_LATITUDE}
-  longitude: ${SECRET_LONGITUDE}
+  latitude: "${SECRET_LATITUDE}"
+  longitude: "${SECRET_LONGITUDE}"
   elevation: 1
   radius: 30
   unit_system: metric
@@ -11,11 +12,8 @@ homeassistant:
   external_url: "https://ha.${SECRET_DOMAIN_0}"
   debug: false
   # customize: !include customize.yaml
-# --- Loads default set of integrations. Do not remove.
-default_config:
 history:
 logbook:
-# --- Set the reverse proxy parameters
 http:
   ip_ban_enabled: false
   login_attempts_threshold: 10
@@ -29,28 +27,26 @@ http:
     - fd00::/64
 logger:
     default: info
-    logs:
-        custom_components.icloud3: info
-# --- Use Postgresql HA setup as recorder
+    # logs:
+    #     custom_components.icloud3: info
 recorder:
   auto_purge: false
   purge_keep_days: 3660
   db_url: postgresql://${SECRET_HOMEASSISTANT_PG_USER}:${SECRET_HOMEASSISTANT_PG_PASSWORD}@${SECRET_HOMEASSISTANT_PG_HOST}/${SECRET_HOMEASSISTANT_PG_DATABASE}
   db_retry_wait: 10
-# --- Load frontend themes from the themes folder
 frontend:
   themes: !include_dir_merge_named themes
 automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
 # --- Load MQTT sensor for SolarEdge Inverter
-mqtt:
-  sensor:
-    - name: "Solarpower"
-      state_topic: "/energy/inverter"
-      unit_of_measurement: "W"
-      value_template: "{% raw %}{{ value_json.power | round(0) }}{% endraw %}"
-      json_attributes_topic: "/energy/inverter"
+# mqtt:
+#   sensor:
+#     - name: "Solarpower"
+#       state_topic: "/energy/inverter"
+#       unit_of_measurement: "W"
+#       value_template: "{% raw %}{{ value_json.power | round(0) }}{% endraw %}"
+#       json_attributes_topic: "/energy/inverter"
 # platform: template
 #     sensors:
 #       rons_iphone_home:
