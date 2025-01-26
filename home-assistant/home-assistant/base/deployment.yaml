@@ -27,7 +27,7 @@ spec:
       initContainers:
         # init container to create config.json config file (if not exist)
         - name: init-homeassistant
-          image: debian:12.6-slim
+          image: ${SECRET_HARBOR_URL}/debian:12.6-slim
           command: ['sh', '-c', 'cp -f /config/*.yaml /ha/. && mkdir -p /ha/blueprints && echo "Home Assistant config created"']
           volumeMounts:
             - name: homeassistant-data
@@ -35,7 +35,7 @@ spec:
             - name: default-config
               mountPath: /config
         - name: init-hacs
-          image: debian:12.6-slim
+          image: ${SECRET_HARBOR_URL}/debian:12.6-slim
           command: ['bash', '-c', 'cp /hacs/get_hacs.sh . && chmod +x get_hacs.sh && ./get_hacs.sh']
           volumeMounts:
             - name: homeassistant-data
@@ -44,7 +44,7 @@ spec:
               mountPath: /hacs
       containers:
         - name: *app
-          image: lscr.io/linuxserver/homeassistant:2025.1.2
+          image: ${SECRET_HARBOR_URL}/homeassistant:2025.1.2
           imagePullPolicy: IfNotPresent
           resources:
             limits:
